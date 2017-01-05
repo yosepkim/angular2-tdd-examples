@@ -9,7 +9,8 @@ module.exports = function (config) {
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-remap-istanbul'),
-      require('angular-cli/plugins/karma')
+      require('angular-cli/plugins/karma'),
+      require('karma-spec-reporter'),
     ],
     files: [
       { pattern: './src/test.ts', watched: false }
@@ -27,10 +28,16 @@ module.exports = function (config) {
       config: './angular-cli.json',
       environment: 'dev'
     },
-    mime: {
-	'text/x-typescript': ['ts','tsx']
+    specReporter: {
+      maxLogLines: 5,
+      suppressErrorSummary: false,
+      suppressFailed: false,
+      suppressPassed: false,
+      suppressSkipped: false,
+      showSpecTiming: true
     },
-    reporters: ['progress', 'karma-remap-istanbul'],
+    mime: {'text/x-typescript': ['ts','tsx']},
+    reporters: ['spec', 'karma-remap-istanbul'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
