@@ -47,7 +47,7 @@ describe('Service: ApiService', () => {
       connection.mockRespond(new Response(new ResponseOptions({ body: 'Yes' })));
       done();
     });
-    
+
     spyOn(formActions, 'saveOwnerName');
     service.getData();
     expect(formActions.saveOwnerName).toHaveBeenCalledWith('Yes');
