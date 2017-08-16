@@ -6,7 +6,7 @@ import { FormActions} from './form-actions';
 export class ApiService {
   http: Http;
   formActions: FormActions;
-  constructor(http: Http, formActions: FormActions) { 
+  constructor(http: Http, formActions: FormActions) {
     this.http = http;
     this.formActions = formActions;
   }
@@ -15,6 +15,6 @@ export class ApiService {
     this.http.get('http://google.com')
       .subscribe((response) => {
           this.formActions.saveOwnerName(response.text());
-      });    
+      });
   }
 }
